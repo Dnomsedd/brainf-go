@@ -21,8 +21,8 @@ Now, the only 8 characters that interpreter cares about are:
 
 | Operator | Effect |
 |:--------:|:-------|
-| + / -    | Increment / decrement the value stored in the memory cell pointed to by the data pointer |
-| > / <    | Shift data pointer right / left |
+| + -      | Increment / decrement the value stored in the memory cell pointed to by the data pointer |
+| > <      | Shift data pointer right / left |
 | ,        | Read one char from standard input and store it as an integer in the current memory cell |
 | .        | Print ASCII character that corresponds to the integer value stored in the current memory cell |
 | [ ]      | Loop while value of current memory cell is non-zero when ] is hit |
