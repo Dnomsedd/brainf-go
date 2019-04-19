@@ -67,7 +67,6 @@ func (vm *BVM) Exec() {
         case '-':
             vm.memory[vm.dp]--
             vm.ip++
-
         case '>':
             vm.dp++
             if vm.dp == 30000 {
@@ -99,6 +98,7 @@ func (vm *BVM) Exec() {
         case ',':
             fmt.Print(">> ")
             b, err := vm.reader.ReadByte()
+            vm.reader.Discard( vm.reader.Buffered() )
             if err != nil {
                 vm.err = true
                 fmt.Print("\n")
