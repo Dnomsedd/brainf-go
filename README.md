@@ -13,7 +13,7 @@ The general idea is that you have:
 3. 30'000 memory locations that store integers and are also initially set to 0s;
 4. a data pointer that points at some memory location (also set to 0 initially and points at the first memory cell).
 
-Now, the only 8 characters that interpreter cares about are:
+Now, the only 9 characters that interpreter cares about are:
 
 ```
 + - > < . , [ ]
@@ -26,6 +26,7 @@ Now, the only 8 characters that interpreter cares about are:
 | ,        | Read one char from standard input and store it as an integer in the current memory cell |
 | .        | Print ASCII character that corresponds to the integer value stored in the current memory cell |
 | [ ]      | Loop while value of current memory cell is non-zero when ] is hit |
+| !        | HALT command stops execution (it was not in the original BrainF@ck but I've added it to simplify things |
 
 You can find a lot of resources about this language in the internet. You now also have your own compact and fast BrainF@ck interpreter ;)
 
