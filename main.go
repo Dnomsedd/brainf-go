@@ -172,9 +172,9 @@ func main() {
         usage()
         os.Exit(1)
     }
-    
+
     if len(os.Args) > 2 {
-        fmt.Println("\n\tERR: TOO MANY COMMAND LINE ARGUMENTS.\n")
+        fmt.Printf("\n\tFatal Error: Too many command line arguments.\n")
         usage()
         os.Exit(1)
     }
