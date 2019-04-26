@@ -13,7 +13,7 @@ The general idea is that you have:
 3. 30'000 memory locations that store integers and are also initially set to 0s;
 4. a data pointer that points at some memory location (also set to 0 initially and points at the first memory cell).
 
-Now, the only 9 characters that interpreter cares about are:
+Now, the only 8 characters that interpreter cares about are:
 
 ```
 + - > < . , [ ]
@@ -26,7 +26,6 @@ Now, the only 9 characters that interpreter cares about are:
 | ,        | Read one char from standard input and store it as an integer in the current memory cell |
 | .        | Print ASCII character that corresponds to the integer value stored in the current memory cell |
 | [ ]      | Loop while value of current memory cell is non-zero when ] is hit |
-| !        | HALT command stops execution (it was not in the original BrainF@ck but I've added it to simplify things |
 
 You can find a lot of resources about this language in the internet. You now also have your own compact and fast BrainF@ck interpreter ;)
 
@@ -37,7 +36,15 @@ Run these in your terminal and it will make you just a bit happier.
 ```
 ~$ go get github.com/sharpvik/brainf-go
 ~$ go install path/to/brainf-go
-~$ path/to/brainf-go(.exe) path/to/file.bf
+```
+
+After running the above commands you will find a binary file in the "bin" folder of your go environment, rename it to something short and memorable like "brainf". If you are a Windows user, you can add path/to/the/bin into the PATH environmental variable, then restart your PC. If you are on UNIX/Linux, I think you can copy the binary file into the /usr/bin folder. You need to do this to be able to use this BrainF@ck interpreter like you normally use Python for example.
+
+```
+~$ brainf greet.bf
+Hello, World!
+
+~$
 ```
 
 ## Contact

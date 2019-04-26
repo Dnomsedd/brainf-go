@@ -47,6 +47,7 @@ func New(src string) *BVM {
     if err != nil {
         fmt.Println(err)
     }
+    data = append(data, '!')
 
     // return instance
     return &BVM {
@@ -67,6 +68,7 @@ func (vm *BVM) Exec() {
         case '-':
             vm.memory[vm.dp]--
             vm.ip++
+
         case '>':
             vm.dp++
             if vm.dp == 30000 {
@@ -148,8 +150,29 @@ func (vm *BVM) Exec() {
 }
 
 
+func usage() {
+    fmt.Println(
+        `
+        Usage Help:
+        | Run file:
+        |---- brainf file.bf
+
+        | Get version and usage help:
+        |---- brainf
+    `)
+}
+
+
 
 func main() {
+    version := "1.0"
+
+    if len(os.Args) < 2 {
+        fmt.Printf("\n\tBrainF@ck Interpreter by sharpvik v%s.\n", version)
+        usage()
+        os.Exit(1)
+    }
+
     src := os.Args[1] // grab the source code filename
     vm := New(src)
 
