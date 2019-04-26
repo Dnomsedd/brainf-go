@@ -172,6 +172,12 @@ func main() {
         usage()
         os.Exit(1)
     }
+    
+    if len(os.Args) > 2 {
+        fmt.Println("\n\tERR: TOO MANY COMMAND LINE ARGUMENTS.\n")
+        usage()
+        os.Exit(1)
+    }
 
     src := os.Args[1] // grab the source code filename
     vm := New(src)
