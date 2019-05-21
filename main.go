@@ -187,7 +187,7 @@ func main() {
     }
 
     if vm.err {
-        fmt.Println("\nBrainfuck exited with error.\n")
+        fmt.Println("\nError: You've just got BrainF@cked.\n")
     }
 }
 
