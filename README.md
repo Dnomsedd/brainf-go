@@ -33,18 +33,73 @@ You can find a lot of resources about this language in the internet. You now als
 
 Run these in your terminal and it will make you just a bit happier.
 
-```
+```bash
 ~$ go get github.com/sharpvik/brainf-go
 ~$ go install path/to/brainf-go
 ```
 
 After running the above commands you will find a binary file in the "bin" folder of your go environment, rename it to something short and memorable like "brainf". If you are a Windows user, you can add path/to/the/bin into the PATH environmental variable, then restart your PC. If you are on UNIX/Linux, I think you can copy the binary file into the /usr/bin folder. You need to do this to be able to use this BrainF@ck interpreter like you normally use Python for example.
 
+```bash
+brainf helloworld.bf 
+# above command runs the brainf script stored in the helloworld.bf file and 
+# produces the following output
+hello world
 ```
-~$ brainf greet.bf
-Hello, World!
 
-~$
+The cool thing about this interpreter is that it doesn't care about symbols that are not used by the BrainF@ck language, so you can write all sorts of comments for yourself while coding. For example, *helloworld.bf* file looks like this:
+
+```brainf
++++++ +++++ [
+    > +++++ +++++
+    < -
+]
+
+id: 0 1   2 3 4 5
+vl: 0 100 0 0 0 0
+pt: ^
+
+> ++++ .                        // 'h'
+--- .                           // 'e'
++++++ ++ ..                     // 'll'
++++ .                           // 'o'
+
+id: 0 1   2 3 4 5
+vl: 0 111 0 0 0 0
+pt:   ^
+
+< +++++ +++++  
+  +++++ +++++  
+  +++++ +++++ ++ . >            // ' '
+
+id: 0  1   2 3 4 5
+vl: 32 111 0 0 0 0
+pt:    ^
+
++++++ +++ .                     // 'w'
+----- --- .                     // 'o'
++++ .                           // 'r'
+----- - .                       // 'l'
+----- --- .                     // 'd'
+
+< ----- -----
+  ----- ----- -- . >
+
+id: 0  1   2 3 4 5
+vl: 10 100 0 0 0 0
+pt:    ^
+```
+
+It runs fine, since slashes, letters, ans spacing are ignored. However, you can also use the *minbf.py* script to minify that file and produce *helloworld.min.bf* as follows:
+
+```bash
+python3 minbf.py path/to/helloworld.bf /path/to/helloworld.min.bf
+```
+
+This will write the following **minified** brainf code into the file specified by you (in my example it was *helloworld.min.bf*).
+
+```brainf
+++++++++++[>++++++++++<-]>++++.---.+++++++..+++.<++++++++++++++++++++++++++++++++.>++++++++.--------.+++.------.--------.<----------------------.>
 ```
 
 ## Contact
